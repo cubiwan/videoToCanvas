@@ -1,0 +1,74 @@
+<html>
+<head>
+<script src="js/vision/videoToCanvas.js"></script>
+
+</head>
+
+<body>
+  <video id="video" autoplay="true"></video>
+  <canvas id="canvas"  width="640" height="480" ></canvas>
+<br>
+<br>
+
+Play:
+<button onclick="playDefault()">Play Default</button>
+<button onclick="playFront()">Play Front</button>
+<button onclick="playRear()">Play Rear</button>
+<br>
+Config:
+<button onclick="set320x240()">Set 320x240</button>
+<button onclick="set640x480()">Set 640x480</button>
+<br>
+Stop:
+<button onclick="stop()">Stop</button>
+<br>
+Canvas:
+<button onclick="snap()">Snap</button>
+<button onclick="clearCanvas()">Clear</button>
+
+</body>
+
+<script>
+
+var v2c = new VideoToCanvas("canvas", "video");
+
+function playDefault(){
+  v2c.configuration.deviceId = v2c.devices.videoDefault;
+  v2c.play();
+}
+
+function playFront(){
+  v2c.configuration.deviceId = v2c.devices.videoFront;
+  v2c.play();
+}
+
+function playRear(){
+  v2c.configuration.deviceId = v2c.devices.videoRear;
+  v2c.play();
+}
+
+function set320x240(){
+  v2c.configuration.width=320;
+  v2c.configuration.height=240;
+}
+
+function set640x480(){
+  v2c.configuration.width=640;
+  v2c.configuration.height=480;
+}
+
+function stop(){
+  v2c.stop();
+}
+
+function snap(){
+  v2c.snap();
+}
+
+function clearCanvas(){
+  v2c.clearCanvas();
+}
+
+</script>
+
+</html>
