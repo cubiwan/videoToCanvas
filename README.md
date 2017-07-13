@@ -79,3 +79,7 @@ v2c.configuration.width = 320;
 v2c.configuration.height = 240;
 v2c.configuration.framerate = 25;
 ```
+
+## Demo
+
+Test in this [demo](https://cubiwan.github.io/videoToCanvas/index.html)
