@@ -78,7 +78,7 @@ function VideoToCanvas(canvasId, videoId){
 	};
 
 	//Clear canvas
-	this.clearImage = function(){
+	this.clearCanvas = function(){
 			this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	}
 
