@@ -24,15 +24,34 @@ v2c.getVideoDevices();
 update devices list isn't necesary because you have defaults devices
 
 ```js
-v2c.play();
+v2c.webcam();
 ```
-star video/webcam 
+start webcam stream
+
+```js
+v2c.loadVideo(dataURL);
+```
+load and play video
+	
+```js  
+v2c.loadImage(dataURL);
+```
+load image
 
 ```js
 v2c.stop();
 ```
+stop webcam/video stream
 
-stop video/webcam 
+```js  
+v2c.pause();
+```
+pause webcam/video stream after
+
+```js
+v2c.resume();
+```
+resume webcam/video stream after pause
 
 ```js
 v2c.snap();
@@ -49,17 +68,20 @@ v2c.getImageData(x,y,width, height) -
 ```
 return a imageData of canvas from (x,y) to (x+width, y+height)
 
-
 ```js
 v2c.getBoxes(rows, cols);
 ```
 return an array of rows*cols imageDatas of canvas
 
-
 ```js
-showImageData(imageData);
+v2c.showImageData(imageData);
 ```
 show imagedata in canvas
+
+```js
+v2c.clearCanvas()
+```
+clear canvas
 
 ## Devices
 
