@@ -5,22 +5,25 @@
 </head>
 
 <body>
+  <h1>videoToCanvas</h1>
   <video id="video" autoplay="true"></video>
   <canvas id="canvas"  width="640" height="480" ></canvas>
 <br>
 <br>
 
+Config:
+<button onclick="set320x240()">Set 320x240</button>
+<button onclick="set640x480()">Set 640x480</button>
+<br>
 Play:
 <button onclick="playDefault()">Play Default</button>
 <button onclick="playFront()">Play Front</button>
 <button onclick="playRear()">Play Rear</button>
 <br>
-Config:
-<button onclick="set320x240()">Set 320x240</button>
-<button onclick="set640x480()">Set 640x480</button>
-<br>
-Stop:
+Control:
 <button onclick="stop()">Stop</button>
+<button onclick="pause()">Pause</button>
+<button onclick="resume()">Resume</button>
 <br>
 Canvas:
 <button onclick="snap()">Snap</button>
@@ -34,17 +37,17 @@ var v2c = new VideoToCanvas("canvas", "video");
 
 function playDefault(){
   v2c.configuration.deviceId = v2c.devices.videoDefault;
-  v2c.play();
+  v2c.webcam();
 }
 
 function playFront(){
   v2c.configuration.deviceId = v2c.devices.videoFront;
-  v2c.play();
+  v2c.webcam();
 }
 
 function playRear(){
   v2c.configuration.deviceId = v2c.devices.videoRear;
-  v2c.play();
+  v2c.webcam();
 }
 
 function set320x240(){
@@ -59,6 +62,14 @@ function set640x480(){
 
 function stop(){
   v2c.stop();
+}
+
+function pause(){
+  v2c.pause();
+}
+
+function resume(){
+  v2c.resume();
 }
 
 function snap(){
