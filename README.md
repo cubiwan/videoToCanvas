@@ -21,7 +21,7 @@ var v2c = new VideoToCanvas("canvas", "video");
 ```js
 v2c.getVideoDevices();
 ```
-update devices list isn't necesary because you have defaults devices
+update devices list. (It isn't necesary)
 
 ```js
 v2c.webcam();
