@@ -29,17 +29,17 @@ function VideoToCanvas(canvasId, videoId){
 		navigator.mediaDevices.enumerateDevices().then(function(devices){
 			for(var i = 0; i < devices.length; ++i){
 				if(devices[i].kind === 'videoinput'){
-						that.devices.videoinputsId.push({deviceId: devices[i].deviceId});
-						that.devices.videoinputsLabel.push(devices[i].label);
-						console.log(devices[i].label);
+					that.devices.videoinputsId.push({deviceId: devices[i].deviceId});
+					that.devices.videoinputsLabel.push(devices[i].label);
+					console.log(devices[i].label);
 				}
 			}
 
 		}).catch(function(e){console.log("Error accesing devices: "+e);})
 	}
 
-	//Start video/webcam stream
-	this.play = function(){
+	//Start webcam stream
+	this.webcam = function(){
 		var device = {};
 		device.video = {};
 		device.video = this.configuration.deviceId;
@@ -55,9 +55,9 @@ function VideoToCanvas(canvasId, videoId){
 				that.isPlaying = true;
 			}
 		).catch(
-				function(e) {
-					console.log("Video error: "+e);
-				}
+			function(e) {
+				console.log("Video error: "+e);
+			}
 		);
 	};
 
@@ -70,6 +70,18 @@ function VideoToCanvas(canvasId, videoId){
 			this.stream.getTracks()[0].stop();
 	};
 
+	//Resume webcam/video stream after pause
+	this.resume = function() {
+		this.isPlaying = true;
+		this.video.play();
+	}
+
+	//Pause webcam/video stream after
+	this.pause = function() {
+		this.isPlaying = false;
+		this.video.pause();
+	}
+
 	//Capture one frame and copy this to canvas
 	this.snap = function() {
 		this.canvas.width = this.video.videoWidth;
@@ -79,11 +91,12 @@ function VideoToCanvas(canvasId, videoId){
 
 	//Clear canvas
 	this.clearCanvas = function(){
-			this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	}
 
-	//Load video
+	//Load and play video
 	this.loadVideo =  function (dataURL) {
+		this.isPlaying = true;
 		this.video.src = dataURL;
 	};
 
@@ -121,7 +134,7 @@ function VideoToCanvas(canvasId, videoId){
 
 	 for(var row = 0; row < rows; ++row){
 		 for(var col = 0; col < cols; ++col) {
-				 boxes.push(this.getImageData(col*boxWidth, row*boxHeight, boxWidth, boxHeight));
+			boxes.push(this.getImageData(col*boxWidth, row*boxHeight, boxWidth, boxHeight));
 		 }
 	 }
 	 return boxes;
