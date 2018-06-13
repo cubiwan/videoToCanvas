@@ -1,8 +1,6 @@
-# videoToCanvas
-Easy capture from webcam to canvas
-
 ## Load
-
+  
+  
 ```html
 <script src="videoToCanvas.js"></script>
 ```
