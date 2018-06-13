@@ -1,6 +1,7 @@
 ## Load
   
-  
+Load library in browseer 
+ 
 ```html
 <script src="videoToCanvas.js"></script>
 ```
