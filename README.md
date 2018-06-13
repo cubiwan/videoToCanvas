@@ -3,12 +3,16 @@ Easy capture from webcam to canvas
 
 ## Load
 
+```html
 <script src="videoToCanvas.js"></script>
+```
 
 Yo need create a video and a canvas html elements.
 
+```html
   <video id="video" autoplay="true"></video>
   <canvas id="canvas" ></canvas>
+```
 
 Finally create instance to VideoToCanvas passing vieo and canvas id.
 
