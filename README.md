@@ -104,4 +104,4 @@ v2c.configuration.framerate = 25;
 
 ## Demo
 
-Test in this [demo](https://cubiwan.github.io/videoToCanvas/index.html)
+Test in this [demo](https://cubiwan.github.io/videoToCanvas/demo.html)
